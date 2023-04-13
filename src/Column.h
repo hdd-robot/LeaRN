@@ -1,17 +1,22 @@
 #ifndef _LEA_COLUMN__
 #define _LEA_COLUMN_
 #include <string>
-#include <map>
+#include <vector>
+
 #include "DataType.h"
 
 namespace LeaRN{
   class Column {
   public:
     Column();
+    virtual ~Column();
+    void add_value(std::string value);
+
   private:
     unsigned int number;
     std::string name;
-    std::map<unsigned long, DataType> data;
+    std::vector<DataType *> data;
+    
   };
 }
 

@@ -1,12 +1,15 @@
 #ifndef _LEA_DATAFRAME_
 #define _LEA_DATAFRAME_
 
-#include <fstream>
-#include <sstream>
+
 #include <iostream>
+#include <fstream>
 #include <string>
-#include <map>
 #include <vector>
+#include <sstream>
+#include <istream>
+#include <map>
+#include "CSV.h"
 #include "Column.h"
 
 namespace LeaRN{
