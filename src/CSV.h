@@ -34,10 +34,11 @@ namespace LeaRN{
     void load_file(const std::string& filename, char col_delimiter);
     void print_header();
     void print_data();
-    std::vector<std::string> get_colmuns ();
+    const std::vector<std::string>& get_colmuns ();
     int get_colmuns_number ();
-    std::vector<std::string>  *get_next_row();
+    std::vector<std::string>& get_next_row();
     std::vector <std::string> *get_header();
+    bool empty_list();
   };
 }
 

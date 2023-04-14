@@ -1,13 +1,19 @@
 #include "CSV.h"
+#include <list>
 
 using namespace LeaRN;
 
-CSV::CSV(){
-  
+CSV::CSV() {
+  this->list_it = this->lst_lines.end(); // null 
 }
 
 CSV::~CSV() {
   // supprimer les éléments de la liste
+  list_it  = lst_lines.end();
+  for(auto row : lst_lines){
+    delete (row);
+  }
+
 }
 
 std::vector<std::string>* CSV::csv_read_row(std::istream &in, char delimiter){
@@ -42,6 +48,7 @@ std::vector<std::string>* CSV::csv_read_row(std::istream &in, char delimiter){
         ss << c;
       }
     }
+    return nullptr;
 }
 
 
@@ -61,7 +68,7 @@ void CSV::load_file(const std::string& filename, char col_delimiter){
     this->lst_lines.push_back(this->csv_read_row(in, col_delimiter));
   }
   in.close();
-  
+  this->list_it = this->lst_lines.begin();
 }
 
 void CSV::print_header(){
@@ -80,9 +87,11 @@ void CSV::print_data(){
   }
 }
 
-std::vector<std::string> CSV::get_colmuns (){
+const std::vector<std::string>& CSV::get_colmuns (){
   //on suppose que la première ligne contient le titre des colonnes 
-  std::vector<std::string>* &row = this->lst_lines.front();
+  std::vector<std::string>* row = this->lst_lines.front();
+  return *row;
+  
 }
 
 std::vector <std::string> * CSV::get_header(){
@@ -93,8 +102,22 @@ int CSV::get_colmuns_number (){
   return this->header_row->size();
 }
 
+bool CSV::empty_list(){
+  if(this->list_it == this->lst_lines.end()){
+    return true;
+  }
+  return false;
+}
 
-std::vector<std::string>* CSV::get_next_row(){
-  return nullptr;
+std::vector<std::string>& CSV::get_next_row(){
+  std::vector<std::string>* ptr_row;
+
+  if (this->list_it == this->lst_lines.end()){
+    throw std::out_of_range("No more element in list");
+  }
+
+  ptr_row = *(this->list_it);
+  this->list_it++;
+  return *ptr_row;
 }
 
