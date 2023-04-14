@@ -7,15 +7,17 @@
 
 namespace LeaRN{
   class Column {
+
+  private:
+    unsigned int number;
+    std::string name;
+    std::vector<DataType*> data;
+
   public:
     Column();
     virtual ~Column();
     void add_value(std::string value);
 
-  private:
-    unsigned int number;
-    std::string name;
-    std::vector<DataType *> data;
     
   };
 }

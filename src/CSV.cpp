@@ -2,12 +2,12 @@
 
 using namespace LeaRN;
 
+CSV::CSV(){
+  
+}
 
-CSV::CSV() { }
-
-
-CSV::~CSV(){
-  // supprimer les éléments de la liste 
+CSV::~CSV() {
+  // supprimer les éléments de la liste
 }
 
 std::vector<std::string>* CSV::csv_read_row(std::istream &in, char delimiter){
@@ -61,7 +61,14 @@ void CSV::load_file(const std::string& filename, char col_delimiter){
     this->lst_lines.push_back(this->csv_read_row(in, col_delimiter));
   }
   in.close();
-  this->print_data();
+  
+}
+
+void CSV::print_header(){
+  for (std::string &str : *(this->header_row)) {
+    std::cout << "|" << std::setw(12) << str.substr(0, 12);
+  }
+  std::cout << std::endl;
 }
 
 void CSV::print_data(){
@@ -78,10 +85,12 @@ std::vector<std::string> CSV::get_colmuns (){
   std::vector<std::string>* &row = this->lst_lines.front();
 }
 
+std::vector <std::string> * CSV::get_header(){
+  return this->header_row;
+}
 
 int CSV::get_colmuns_number (){
-  
-  return 0;
+  return this->header_row->size();
 }
 
 

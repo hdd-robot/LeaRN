@@ -15,7 +15,7 @@
 namespace LeaRN{
   class DataFrame{
   private:
-    std::map <unsigned int, Column> columns;
+    std::vector<Column> columns;
 
 
     void add_column();
