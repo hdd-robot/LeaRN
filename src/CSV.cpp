@@ -68,6 +68,14 @@ void CSV::load_file(const std::string& filename, char col_delimiter){
     this->lst_lines.push_back(this->csv_read_row(in, col_delimiter));
   }
   in.close();
+  this->list_it = this->lst_lines.end();
+
+  if (lst_lines.size() <= 1) { return; }
+
+  this->header_row = lst_lines.front();
+
+  lst_lines.pop_front();
+
   this->list_it = this->lst_lines.begin();
 }
 
@@ -94,8 +102,8 @@ const std::vector<std::string>& CSV::get_colmuns (){
   
 }
 
-std::vector <std::string> * CSV::get_header(){
-  return this->header_row;
+const std::vector <std::string>& CSV::get_header(){
+  return *(this->header_row);
 }
 
 int CSV::get_colmuns_number (){

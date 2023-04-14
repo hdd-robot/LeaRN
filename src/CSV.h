@@ -37,7 +37,7 @@ namespace LeaRN{
     const std::vector<std::string>& get_colmuns ();
     int get_colmuns_number ();
     std::vector<std::string>& get_next_row();
-    std::vector <std::string> *get_header();
+    const std::vector <std::string>& get_header();
     bool empty_list();
   };
 }
