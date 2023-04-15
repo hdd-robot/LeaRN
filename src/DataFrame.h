@@ -29,8 +29,8 @@ namespace LeaRN{
     void addline();
 
     void describe();
-    void head();
-    void tail();
+    void head(int size = 10);
+    void tail(int size = 10);
 
     int load_csv(const std::string &file_name, const char col_delimiter = ',');
   };

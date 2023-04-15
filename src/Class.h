@@ -10,7 +10,7 @@ namespace LeaRN {
 
 
   public:
-
+    virtual ~Class(){}
 
 
   };

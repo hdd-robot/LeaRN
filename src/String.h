@@ -2,15 +2,16 @@
 #define _LEA_STRING_H_
 
 #include <string>
-
+#include "Parser.h"
 #include "DataType.h"
 
 namespace LeaRN {
   class String : public DataType {
   private:
-
-  public:
-    std::string get_value();
+    std::string string_value;
+  public :
+    virtual ~String() {}
+    String(std::string param);
   };
 } // namespace LeaRN
 #endif
