@@ -52,7 +52,6 @@ int DataFrame::load_csv(const  std::string &file_name, const char col_delimiter)
 }
 
 void DataFrame::describe(){
-  
   for(Column col : this->columns){
     std::cout << "Column name : " << col.get_name() << std::endl;
     std::cout << "\t- total : " << col.total() << std::endl;
@@ -95,3 +94,37 @@ void DataFrame::tail(int size) {
 void DataFrame::add_column() {}
 
 void DataFrame::addline() {}
+
+int DataFrame::get_row_number() {
+  if (this->get_cols_number() == 0) {
+    return 0;
+  }
+  return this->columns[0].total();
+}
+
+void DataFrame::split(DataFrame &leran, DataFrame &test, int percent, bool scramble) {
+  if(this->get_row_number() == 0){
+    throw std::logic_error("No lines in the dataframe");
+    return;
+  }
+
+  std::vector<unsigned int>nums;
+  nums.resize(this->get_row_number());
+  for (unsigned int i = 0; i < this->get_row_number() ; i++){
+    nums[i]=i;
+  }
+
+
+  if (scramble == true){
+    std::random_device rd;
+    std::default_random_engine rng(rd());
+    shuffle(nums.begin(), nums.end(), rng);
+  }
+
+  int test_size = (this->get_row_number() * percent) / 100;
+  int learn_size = this->get_row_number() - test_size;
+
+  for (int i=0 ; i < test_size ; i++){
+    
+  }
+}
