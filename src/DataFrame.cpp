@@ -14,6 +14,7 @@ int DataFrame::load_csv(const  std::string &file_name, const char col_delimiter)
 
   this->columns.resize(nb_cols);
 
+
   const std::vector<std::string> header = csv.get_header();
 
   for(int i=0 ;  i < nb_cols ; i++){

@@ -1,8 +1,6 @@
 set (CMAKE_CXX_STANDARD 11)
 set (CMAKE_BUILD_TYPE Debug)
-
-
-
+set (PROJECT_NAME LeaRN)
 
 # Library target
 add_library(matplotlib_cpp INTERFACE)

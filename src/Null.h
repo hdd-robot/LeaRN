@@ -11,8 +11,9 @@ namespace LeaRN {
   public:
     virtual ~Null(){};
     Null(std::string param);
+    //Null(const Null &objnull) : DataType(objnull.value){};
     long long int get_value ();
-    Null* clone() const; 
+    virtual Null *clone() { return new Null(*this); };
   };
 }// namespace LeaRN
 #endif

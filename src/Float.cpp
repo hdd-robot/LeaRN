@@ -10,7 +10,4 @@ Float::Float(std::string param): DataType(param){
   }
 }
 
-Float * Float::clone() const {
-  return new DataType(*this);
-}
 

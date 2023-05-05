@@ -11,9 +11,10 @@ namespace LeaRN  {
   public:
     virtual ~Float(){}
     Float(std::string param);
-    Float *clone() const;
+    //    Float(const Float& flt):DataType(flt.value){flt.float_value;};
 
+    virtual Float *clone() const { return new Float(*this); }
   };
-}0
+}
 #endif
 

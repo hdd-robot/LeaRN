@@ -9,6 +9,3 @@ String::String(std::string param) : DataType(param) {
   }
 }
 
-String *String::clone() {
-  return new String(*this);
-}

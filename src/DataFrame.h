@@ -37,6 +37,7 @@ namespace LeaRN{
     std::vector<unsigned int> learn_set;
     std::vector<unsigned int> test_set;
   public:
+    DataFrame(){}
     void add_column();
     void addline();
 

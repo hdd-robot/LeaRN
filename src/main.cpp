@@ -20,6 +20,15 @@ int main(int argc, char** argv){
   std::cout << "***" << std::endl;
   df.tail();
 
+  std::cout << "***  SPLIT **** " << std::endl;
+  LeaRN::DataFrame test, learn;
+  df.split(learn, test);
+
+  std::cout << "***  LEARN **** " << std::endl;
+  learn.head();
+  std::cout << "***  TEST **** " << std::endl;
+  test.head();
+
   /*
   // Prepare data.
   int n = 5000;

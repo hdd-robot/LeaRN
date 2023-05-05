@@ -9,10 +9,9 @@ Column::Column(){
 }
 
 Column::Column(Column &col){
-  
   std::vector<DataType *>::iterator data_it ;
-  for (data_it = this->data.begin(); data_it < this->data.end(); data_it++) {
-    
+  for (data_it = col.data.begin(); data_it < col.data.end(); data_it++) {
+    this->data.push_back((*data_it)->clone());
   }
 }
 

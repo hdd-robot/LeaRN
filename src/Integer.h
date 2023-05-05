@@ -12,8 +12,9 @@ namespace LeaRN {
   public:
     virtual ~Integer(){};
     Integer(std::string param);
+    //Integer(const Integer &integer):DataType(integer.value){this->integer_value = integer.integer_value;};
     long long int get_value () {return this->integer_value; }
-    Integer* clone() const;
+    virtual Integer *clone() const { return new Integer(*this); }
   };
 }// namespace LeaRN
 #endif

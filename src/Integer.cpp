@@ -10,6 +10,3 @@ Integer::Integer(std::string param) : DataType(param) {
   }
 }
 
-Integer *Integer::clone() const {
-  return new DataType(*this);
-  }

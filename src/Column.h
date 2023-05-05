@@ -21,8 +21,6 @@
 #include "Integer.h"
 #include "Float.h"
 
-
-
 namespace LeaRN{
   class Column {
   private:
@@ -31,6 +29,7 @@ namespace LeaRN{
   public:
     std::vector<DataType *> data;  // a mettre en Privé 
     Column();
+    Column(Column &&col) : Column(col){};
     Column(Column& col);
     virtual ~Column();
     void add_value(DataType * value);
