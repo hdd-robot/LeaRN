@@ -4,7 +4,11 @@
 
 using namespace LeaRN;
 
-Column::Column(){
+const unsigned char Column::FEATURE = 1;
+const unsigned char Column::LABEL = 2;
+const unsigned char Column::UNKNOWN = 3;
+
+Column::Column():column_type(Column::UNKNOWN) {
   
 }
 

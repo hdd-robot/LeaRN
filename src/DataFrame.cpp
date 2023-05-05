@@ -125,7 +125,16 @@ void DataFrame::split(DataFrame &leran, DataFrame &test, int percent, bool scram
   int test_size = (this->get_row_number() * percent) / 100;
   int learn_size = this->get_row_number() - test_size;
 
+
+  leran.clear();
+  test.clear();
+
   for (int i=0 ; i < test_size ; i++){
     
+  }
+
+  std::cout << std::endl;
+  for (int i = test_size; i < test_size + learn_size; i++) {
+
   }
 }

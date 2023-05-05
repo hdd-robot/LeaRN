@@ -45,6 +45,8 @@ namespace LeaRN{
     void head(int size = 10);
     void tail(int size = 10);
 
+    void clear(){ this->columns.clear(); } // TODO: to be finished 
+
     
     int get_cols_number(){return columns.size();}
     int get_row_number();

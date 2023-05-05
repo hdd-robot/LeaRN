@@ -26,7 +26,15 @@ namespace LeaRN{
   private:
     unsigned int number;
     std::string name;
+    int column_type;
   public:
+    static const unsigned char FEATURE;
+    static const unsigned char LABEL;
+    static const unsigned char UNKNOWN;
+
+    int get_column_type(){return column_type;}
+    void set_column_type(int col_type) { column_type = col_type; }
+
     std::vector<DataType *> data;  // a mettre en Privé 
     Column();
     Column(Column &&col) : Column(col){};
