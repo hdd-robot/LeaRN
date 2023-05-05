@@ -11,8 +11,9 @@ namespace LeaRN  {
   public:
     virtual ~Float(){}
     Float(std::string param);
+    Float *clone() const;
 
   };
-}
+}0
 #endif
 

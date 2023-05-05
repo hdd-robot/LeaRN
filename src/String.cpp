@@ -8,3 +8,7 @@ String::String(std::string param) : DataType(param) {
     this->string_value = param;
   }
 }
+
+String *String::clone() {
+  return new String(*this);
+}

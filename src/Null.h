@@ -12,7 +12,7 @@ namespace LeaRN {
     virtual ~Null(){};
     Null(std::string param);
     long long int get_value ();
-
+    Null* clone() const; 
   };
 }// namespace LeaRN
 #endif

@@ -25,18 +25,18 @@
 
 namespace LeaRN{
   class Column {
-
   private:
     unsigned int number;
     std::string name;
   public:
     std::vector<DataType *> data;  // a mettre en Privé 
     Column();
+    Column(Column& col);
     virtual ~Column();
     void add_value(DataType * value);
     void set_name(std::string name) { this->name = name;}
 
-    const std::string& get_name() { return this->name = name; }
+    const std::string& get_name() { return this->name; }
 
     /**
      * @brief count number of lines

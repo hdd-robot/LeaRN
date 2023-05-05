@@ -9,3 +9,7 @@ Integer::Integer(std::string param) : DataType(param) {
     this->integer_value = std::stold(param);
   }
 }
+
+Integer *Integer::clone() const {
+  return new DataType(*this);
+  }

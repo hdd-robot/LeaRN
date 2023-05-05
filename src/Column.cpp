@@ -8,11 +8,15 @@ Column::Column(){
   
 }
 
-
-Column::~Column(){
+Column::Column(Column &col){
   
+  std::vector<DataType *>::iterator data_it ;
+  for (data_it = this->data.begin(); data_it < this->data.end(); data_it++) {
+    
+  }
 }
 
+Column::~Column() {}
 
 void Column::add_value(DataType *  value){
   this->data.push_back(value);

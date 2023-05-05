@@ -12,6 +12,7 @@ namespace LeaRN {
   public :
     virtual ~String() {}
     String(std::string param);
+    String *clone() const;
   };
 } // namespace LeaRN
 #endif

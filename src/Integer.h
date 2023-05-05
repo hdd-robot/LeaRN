@@ -13,8 +13,7 @@ namespace LeaRN {
     virtual ~Integer(){};
     Integer(std::string param);
     long long int get_value () {return this->integer_value; }
-    
-
+    Integer* clone() const;
   };
 }// namespace LeaRN
 #endif

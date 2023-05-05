@@ -9,3 +9,8 @@ Float::Float(std::string param): DataType(param){
     this->float_value = std::stoll(param);
   }
 }
+
+Float * Float::clone() const {
+  return new DataType(*this);
+}
+
