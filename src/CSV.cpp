@@ -65,7 +65,9 @@ void CSV::load_file(const std::string& filename, char col_delimiter){
     return;
   }
   while(in.good()){
-    this->lst_lines.push_back(this->csv_read_row(in, col_delimiter));
+    std::vector<std::string> *rrow = this->csv_read_row(in, col_delimiter);
+    if(rrow == nullptr) break;
+    this->lst_lines.push_back(rrow);
   }
   in.close();
   this->list_it = this->lst_lines.end();
@@ -75,7 +77,6 @@ void CSV::load_file(const std::string& filename, char col_delimiter){
   this->header_row = lst_lines.front();
 
   lst_lines.pop_front();
-
   this->list_it = this->lst_lines.begin();
 }
 
@@ -120,12 +121,13 @@ bool CSV::empty_list(){
 std::vector<std::string>& CSV::get_next_row(){
   std::vector<std::string>* ptr_row;
 
-  if (this->list_it == this->lst_lines.end()){
+  if (this->list_it == this->lst_lines.end()) {
     throw std::out_of_range("No more element in list");
   }
 
   ptr_row = *(this->list_it);
   this->list_it++;
+
   return *ptr_row;
 }
 

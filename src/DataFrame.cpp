@@ -32,7 +32,8 @@ int DataFrame::load_csv(const  std::string &file_name, const char col_delimiter)
   }
 
   while(!csv.empty_list()){
-    std::vector<std::string> row = csv.get_next_row();
+
+    std::vector<std::string>& row = csv.get_next_row();
     int i = 0;
     for(std::string str_col : row){
       unsigned char type = Parser::get_type(str_col);

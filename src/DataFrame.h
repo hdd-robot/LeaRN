@@ -37,7 +37,7 @@ namespace LeaRN{
     std::vector<unsigned int> learn_set;
     std::vector<unsigned int> test_set;
     int dataFrame_type = ALL_SET;
-    
+
   public:
     static const unsigned char ALL_SET;
     static const unsigned char LEARN_SET;
