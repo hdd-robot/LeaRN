@@ -5,6 +5,16 @@
 
 using namespace LeaRN;
 
+const unsigned char DataFrame::ALL_SET   = 1;
+const unsigned char DataFrame::LEARN_SET = 2;
+const unsigned char DataFrame::TEST_SET  = 3;
+
+void DataFrame::clear() {
+  this->columns.clear();
+  this->learn_set.clear();
+  this->test_set.clear();
+
+}
 
 int DataFrame::load_csv(const  std::string &file_name, const char col_delimiter){
   CSV csv;
@@ -110,11 +120,11 @@ void DataFrame::split(DataFrame &leran, DataFrame &test, int percent, bool scram
   }
 
   std::vector<unsigned int>nums;
-  nums.resize(this->get_row_number());
-  for (unsigned int i = 0; i < this->get_row_number() ; i++){
+  int row_numebers = this->get_row_number();
+  nums.resize(row_numebers);
+  for (unsigned int i = 0; i < row_numebers ; i++) {
     nums[i]=i;
   }
-
 
   if (scramble == true){
     std::random_device rd;
@@ -128,13 +138,22 @@ void DataFrame::split(DataFrame &leran, DataFrame &test, int percent, bool scram
 
   leran.clear();
   test.clear();
+  leran.columns.resize(this->get_cols_number());
+  test.columns.resize(this->get_cols_number());
 
-  for (int i=0 ; i < test_size ; i++){
-    
+  // learn
+  for (int i=0 ; i < learn_size ; i++){
+    int k = 0;
+    for(int j = 0; j<this->columns.size() ; j++){
+      leran.columns[k++].add_value(this->columns[j].data[nums[i]]->clone());
+    }
   }
 
-  std::cout << std::endl;
-  for (int i = test_size; i < test_size + learn_size; i++) {
-
+  //test
+  for (int i = learn_size; i < test_size + learn_size; i++) {
+    int k = 0;
+    for (int j = 0; j < this->columns.size(); j++) {
+      test.columns[k++].add_value(this->columns[j].data[nums[i]]->clone());
+    }
   }
 }

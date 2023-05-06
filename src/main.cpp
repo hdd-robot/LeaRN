@@ -16,7 +16,7 @@ int main(int argc, char** argv){
   df.load_csv("../data/housing.csv");
   df.describe();
 
-  df.head();
+  //df.head();
   std::cout << "***" << std::endl;
   df.tail();
 
