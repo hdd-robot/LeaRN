@@ -47,8 +47,10 @@ namespace LeaRN{
     void add_column();
     void addline();
 
+   
     int get_dataframe_type(){return this->dataFrame_type;}
     void set_dataframe_type(int data_type) { this->dataFrame_type = data_type; }
+
 
     void describe();
     void head(int size = 10);
